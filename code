@@ -1,0 +1,99 @@
+from functools import reduce
+users = [
+    {
+        "name": "Harshit",
+        "age": 23,
+        "country": "India",
+        "email": "harshit@example.com",
+        "department": "CSE",
+        "spent": 600,
+        "active": True
+    },
+    {
+        "name": "Rohit",
+        "age": 30,
+        "country": "USA",
+        "email": "@example.com",
+        "department": "Marketing",
+        "spent": 300,
+        "active": True
+    },
+    {
+        "name": "Ratan",
+        "age": 48,
+        "country": "Australia",
+        "email": "ratan@example.com",
+        "department": "Finance",
+        "spent": 400,
+        "active": False
+    },
+    {
+        "name": "rehman",
+        "age": 27,
+        "country": "nepal",
+        "email": "rehman@example.com",
+        "department": "Accounts",
+        "spent": 720,
+        "active": True
+    },
+    {
+        "name": "King",
+        "age": 31,
+        "country": "USA",
+        "email": "king@example.com",
+        "department": "HR",
+        "spent": 300,
+        "active": True
+    },
+    {
+        "name": "Zack",
+        "age": 29,
+        "country": "Japan",
+        "email": "zack@example.com",
+        "department": "Design",
+        "spent": 520,
+        "active": False
+    }
+]
+ 
+ 
+ 
+ 
+sorted_by_spent = sorted(users, key=lambda u: u["spent"], reverse=True)
+print(sorted_by_spent)
+ 
+#extract all emails
+emails = list(map(lambda u: u["email"], users))
+print(emails)
+ 
+#filter active users
+active_users = list(filter(lambda u: u["active"], users))
+print(active_users)
+ 
+#reduce total spent
+total_spent = reduce(lambda acc, u: acc + u["spent"], users, 0)
+print(total_spent)
+ 
+#Comprehensions
+ 
+indian_names = [u["name"] for u in users if u["country"] == "India"]
+print(indian_names)
+ 
+email_active_map = {u["email"]: u["active"] for u in users}
+print(email_active_map)
+ 
+name_char_pairs = [(u["name"], c) for u in users for c in u["name"]]
+print(name_char_pairs)
+ 
+#Backend Data Transformation
+ 
+ 
+active_india = [u for u in users if u["active"] and u["country"] == "India"]
+ 
+segmented = [{**u, "segment": "High" if u["spent"] > 500 else "Low"} for u in active_india]
+ 
+final = sorted(segmented, key=lambda u: u["name"])
+ 
+print([(u["name"], u["segment"], u["country"], u["spent"]) for u in final])
+ 
+ 
