@@ -8,7 +8,7 @@ students = [
     {"id": 155, "name": "Kabir",     "marks": 98, "branch": "ECE", "active": False},
     {"id": 100, "name": "Ananya",    "marks": 85, "branch": "ME",  "active": True},
     {"id": 160, "name": "Ishaan",    "marks": 87, "branch": "ECE", "active": False},
-    {"id": 159, "name": "Meera",     "marks": 98, "branch": "ME",  "active": True}
+    {"id": 159, "name": "Maya",     "marks": 98, "branch": "ME",  "active": True}
 ]
 
 def is_cse(student: dict) -> bool:
